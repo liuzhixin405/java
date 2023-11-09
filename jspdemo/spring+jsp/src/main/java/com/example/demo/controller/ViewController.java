@@ -7,11 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 /**
  * Keafmd
  *
- * @ClassName: ViewController
- * @Description:
- * @author: 牛哄哄的柯南
- * @Date: 2021-04-02 14:47
- * @Blog: https://keafmd.blog.csdn.net/
  */
 @Controller
 public class ViewController {
