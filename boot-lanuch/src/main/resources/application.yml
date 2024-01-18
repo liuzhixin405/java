@@ -1,0 +1,30 @@
+
+server:
+  port: 8888
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:sss
+    time-zone: GMT+8
+
+
+
+
+
+family:
+  familyName: "happy family"
+  father:
+    name: lzx
+    age: ${random.int}
+  mother:
+    alias:
+      - lovely
+      - ailice
+  child:
+    name: ${family.father.name:lzx}
+    age: 5
+    friends:
+      - hobby: football
+        sex: male
+      - hobby: baskball
+        sex: femal
