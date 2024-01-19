@@ -18,33 +18,35 @@ import java.util.List;
 @RequestMapping("/rest")
 public class ArticleController {
 
-    //@Resource
-    //ArticleService articleService;
+    @Resource
+    ArticleService articleService;
 
     //查询
     @RequestMapping(value = "/articles/{id}",method = RequestMethod.GET)
-    public AjaxResponse getarticle(@PathVariable("id") Long id){
+    public AjaxResponse getArticle(@PathVariable("id") Long id){
 
-        List<Reader> readers = new ArrayList<Reader>(){{
-           add(new Reader("Jack",22));
-           add(new Reader("Mark",30));
-        }};
-                Article article = Article.builder().author("lzx")
-                        .id(id)
-                        .content("spring boot learing")
-                        .createTime(new Date())
+//        List<Reader> readers = new ArrayList<Reader>(){{
+//           add(new Reader("Jack",22));
+//           add(new Reader("Mark",30));
+//        }};
+//                Article article = Article.builder().author("lzx")
+//                        .id(id)
+//                        .content("spring boot learing")
+//                        .createTime(new Date())
+//
+//                        .reader(readers).title("t1")
+//                        .build();
 
-                        .reader(readers).title("t1")
-                        .build();
+        Article article = articleService.getArticle(id);
                 log.info("Article:"+article);
                 return AjaxResponse.success(article);
     }
 
     @RequestMapping(value = "/articles",method = RequestMethod.POST)
     public AjaxResponse saveArticle(@RequestBody Article article){
-
+        articleService.saveArticle(article);
         log.info("saveArticle:"+article);
-        return AjaxResponse.fail();
+        return AjaxResponse.success();
         //return AjaxResponse.success(articleService.saveArticle(article));
     }
 
@@ -53,16 +55,15 @@ public class ArticleController {
         if(article.getId()==null){
             //
         }
+        articleService.updateArticle(article);
         log.info("updateArticle:"+article);
         return AjaxResponse.success();
     }
 
-    @DeleteMapping("/articles/{id}")
-    public AjaxResponse deleteArticle(@PathVariable("id")Long id){
-        if(id==null){
-            //
-        }
-        log.info("deleteArticle:"+id);
-        return AjaxResponse.success();
+    @RequestMapping(value = "/articles",method = RequestMethod.GET)
+    public AjaxResponse getArticles(){
+      List<Article> articles = articleService.getAll();
+        log.info("getArticle:"+articles );
+        return AjaxResponse.success(articles);
     }
 }

@@ -1,16 +1,24 @@
 package com.example.bootlanuch;
 
 import com.example.bootlanuch.model.Article;
+import com.example.bootlanuch.model.Employee;
+import com.example.bootlanuch.model.Family;
 import com.example.bootlanuch.model.Reader;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 public class JacksonTest {
+
     @Test
     void testJackson() throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
@@ -29,7 +37,7 @@ public class JacksonTest {
         System.out.println(jsonStr);
 
         //{"content":"spring boot learing","title":"t1","id":2,"createTime":"2024/01/18 18:35:30","reader":[{"name":"Jack","age":22},{"name":"Mark","age":30}],"作者":"lzx"}
-       Article objToArticle = mapper.readValue("{\"content\":\"spring boot learing\",\"title\":\"t1\",\"id\":2,\"createTime\":\"2024/01/18 18:35:30\",\"reader\":[{\"name\":\"Jack\",\"age\":22},{\"name\":\"Mark\",\"age\":30}],\"作者\":\"lzx\"}",Article.class);
+       Article objToArticle = mapper.readValue("{\"content\":\"spring boot learing\",\"title\":\"t1\",\"id\":2,\"createTime\":\"2024/01/18 18:35:30\",\"reader\":[{\"name\":\"Jack\",\"age\":22},{\"name\":\"Mark\",\"age\":30}],\"author\":\"lzx\"}",Article.class);
         System.out.println(objToArticle);
     }
 }
