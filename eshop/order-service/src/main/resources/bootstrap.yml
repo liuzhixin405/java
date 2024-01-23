@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: orderservice
+  profiles:
+    active: dev
+
+  cloud:
+    server-addr: localhost:8848
+    config:
+      file-extension: yml
+
