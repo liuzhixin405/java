@@ -2,7 +2,7 @@ server:
   port: 8090 #yml不生效还,检查过module的resources设置没有发现问题，只能新建一个config文件
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/orderdb?useSSL=false
+    url: jdbc:mysql://localhost:3306/orderdb?useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver

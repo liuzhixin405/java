@@ -11,7 +11,8 @@ public class Order {
     private  Long userId;
     private  User user;
 
-    public Long getUserId(){
-        return user.getId();
-    }
+    //public Long getUserId(){
+        //return user.getId();
+    //}
+
 }

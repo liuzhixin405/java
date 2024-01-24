@@ -18,6 +18,7 @@ public class OrderServiceImpl implements OrderService{
 
         Order order = orm.getbyid(id);
         User user=userClient.getUserById(order.getUserId());
+        order.setUser(user);
         return order;
     }
 }
