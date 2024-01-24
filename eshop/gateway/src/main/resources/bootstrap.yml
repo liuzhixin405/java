@@ -23,7 +23,7 @@ spring:
         - id: userservice
           uri: lb://userservice
           predicates:
-            - Path=/user/**
+            - Path=/**
   application:
     name: gateway
   profiles:
